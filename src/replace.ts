@@ -1,11 +1,9 @@
 export function replace(inString: string, vars: any): string {
     function _replace(match, group) {
-        return vars[group];
+        return vars[group] || match;
     }
 
     let outString = inString.replace(/\\\$/g, '%#');
-
-    console.log(outString);
 
     outString = outString.replace(/\$\{(\w+)\}/g, _replace);
     outString = outString.replace(/\$(\w+)/g, _replace);
