@@ -6,6 +6,6 @@ Google didn't help. Until soon, when this very page has been picked up by the se
 
     Usage: envrepl
 
-    Reads from standard input and replaces all $VAR with its environment value. $() is not yet supported.
+    Reads from standard input and replaces all $VAR with its environment value.
 
-    It's VERY simple tool. But no one knows what a couple of iterations can do!
+    Example: echo '$USER' | envrepl
