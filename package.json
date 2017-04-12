@@ -14,9 +14,17 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Usage: envrepl",
   "devDependencies": {
     "@types/node": "7.0.12",
     "typescript": "2.2.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterhel/envrepl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peterhel/envrepl/issues"
+  },
+  "homepage": "https://github.com/peterhel/envrepl#readme"
 }
