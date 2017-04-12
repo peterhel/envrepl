@@ -21,9 +21,9 @@ describe('with regexp', () => {
         assert.equal(result, 'Well here I am!');
     });
 
-    it('i ignores env var with backslash before dollar', () => {
+    it('unescaped dollar with backslash', () => {
         const result = rexi('Well \\$VAR with dollar', {});
-        assert.equal(result, `Well \\$VAR with dollar`);
+        assert.equal(result, `Well $VAR with dollar`);
     });
 })
 

@@ -8,7 +8,7 @@ export function replace(inString: string, vars: any): string {
     outString = outString.replace(/\$\{(\w+)\}/g, _replace);
     outString = outString.replace(/\$(\w+)/g, _replace);
 
-    outString = outString.replace(/%#/g, '\\$');
+    outString = outString.replace(/%#/g, '$');
 
     return outString;
 }
