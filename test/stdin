@@ -1,0 +1,22 @@
+#!/bin/bash
+set -eufx -o pipefail
+
+SITE_NAME=$(echo $BRANCH | sed s/\\//-/g)
+HOST=${SITE_NAME}.mrgreen.avengers.zone
+DEPLOYED_TO="http://${HOST}"
+
+[[ `pwd` =~ scripts$  ]] || cd build-scripts
+
+cat ../mrgreen-ui.conf.erb | ssh root@seh-avengers.3db.local "cat > /tmp/$SITE_NAME.conf.erb"
+./agent_3-1_nginx.sh | ssh root@seh-avengers.3db.local "bash - "
+
+# coverage for master
+if [ X"$BRANCH" = X"master" ]
+then
+    ./agent_3-1_nginx_coverage.sh | ssh root@seh-avengers.3db.local "bash - "
+fi
+
+MSG1="Successful build to <${DEPLOYED_TO}|${DEPLOYED_TO}>"
+
+
+byggtanten "${MSG1}" "${BUILD_VCS_NUMBER}"
